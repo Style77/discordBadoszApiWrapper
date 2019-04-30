@@ -17,4 +17,4 @@ class utils():
     def get_image(self, image, loop):
         fn = partial(utils.processing, image)
         final_buffer = loop.run_in_executor(None, fn)
-        return final_buffer
+        return discord.File(fp=final_buffer)
