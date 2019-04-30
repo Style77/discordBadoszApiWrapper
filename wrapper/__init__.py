@@ -22,6 +22,7 @@ class Wrapper(object):
         }
         self.loop = asyncio.new_event_loop()
         self.bot = kwargs.get("bot")
+        self.session = aiohttp.ClientSession(loop=bot.loop)
 
     @property
     def advice(self):
