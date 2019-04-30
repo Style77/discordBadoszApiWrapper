@@ -5,6 +5,8 @@ from functools import partial
 import discord
 
 class utils():
+    def __init__(self, bot):
+        self.bot = bot
 
     def processing(self, image):
         with Image.open(BytesIO(image)) as im:
@@ -14,7 +16,7 @@ class utils():
         final_buffer.seek(0)
         return final_buffer
 
-    def get_image(self, image, loop):
+    async def get_image(self, image):
         fn = partial(utils.processing, image)
-        final_buffer = loop.run_in_executor(None, fn)
+        final_buffer = await self.bot.loop.run_in_executor(None, fn)
         return discord.File(fp=final_buffer)

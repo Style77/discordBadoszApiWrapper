@@ -30,13 +30,13 @@ class Wrapper(object):
         return r['advice']
 
     @property
-    def bird(self):
+    async def bird(self):
         r = requests.get(self.base_api_link+"/bird",
                                  headers=self.headers)
-        f = utils.get_image(self, r, self.loop)
+        f = await utils.get_image(self, r)
         return f
 
-    def blurple(self, url):
+    async def blurple(self, url):
         url_page = requests.get(url)
         if url_page.status_code != 200:
             raise WrongParameter("Error appeared while trying to get image.")
@@ -45,7 +45,7 @@ class Wrapper(object):
         }
         r = requests.get(self.base_api_link+"/blurple",
                                  headers=self.headers, params=payload)
-        f = utils.get_image(self, r, self.loop)
+        f = await utils.get_image(self, r)
         return f
 
     @property
@@ -55,13 +55,13 @@ class Wrapper(object):
         r = r.json()
         return r['cat']
 
-    def changemymind(self, text):
+    async def changemymind(self, text):
         payload = {
             "text": text
         }
         r = requests.get(self.base_api_link+"/changemymind",
                          headers=self.headers, params=payload)
-        f = utils.get_image(self, r, self.loop)
+        f = await utils.get_image(self, r)
         return f
 
     @property
@@ -72,10 +72,10 @@ class Wrapper(object):
         return r['joke']
 
     @property
-    def cuddle(self):
+    async def cuddle(self):
         r = requests.get(self.base_api_link+"/cuddle",
                          headers=self.headers)
-        f = utils.get_image(self, r, self.loop)
+        f = await utils.get_image(self, r)
         return f
 
     @property
@@ -86,19 +86,19 @@ class Wrapper(object):
         return r['joke']
 
     @property
-    def dog(self):
+    async def dog(self):
         r = requests.get(self.base_api_link+"/dog",
                          headers=self.headers)
-        f = utils.get_image(self, r, self.loop)
+        f = await utils.get_image(self, r)
         return f
 
-    def execuseme(self, text):
+    async def execuseme(self, text):
         payload = {
             "text": text
         }
         r = requests.get(self.base_api_link+"/execuseme",
                          headers=self.headers, params=payload)
-        f = utils.get_image(self, r, self.loop)
+        f = await utils.get_image(self, r)
         return f
 
     @property
@@ -109,20 +109,20 @@ class Wrapper(object):
         return r['fact']
 
     @property
-    def fox(self):
+    async def fox(self):
         r = requests.get(self.base_api_link+"/fox",
                          headers=self.headers)
-        f = utils.get_image(self, r, self.loop)
+        f = await utils.get_image(self, r)
         return f
 
     @property
-    def hug(self):
+    async def hug(self):
         r = requests.get(self.base_api_link+"/hug",
                          headers=self.headers)
-        f = utils.get_image(self, r, self.loop)
+        f = await utils.get_image(self, r)
         return f
     
-    def invert(self, url):
+    async def invert(self, url):
         url_page = requests.get(url)
         if url_page.status_code != 200:
             raise WrongParameter("Error appeared while trying to get image.")
@@ -131,26 +131,26 @@ class Wrapper(object):
         }
         r = requests.get(self.base_api_link+"/invert",
                          headers=self.headers, params=payload)
-        f = utils.get_image(self, r, self.loop)
+        f = await utils.get_image(self, r)
         return f
 
     @property
-    def kiss(self):
+    async def kiss(self):
         r = requests.get(self.base_api_link+"/kiss",
                          headers=self.headers)
-        f = utils.get_image(self, r, self.loop)
+        f = await utils.get_image(self, r)
         return f
 
-    def note(self, text):
+    async def note(self, text):
         payload = {
             "text": text
         }
         r = requests.get(self.base_api_link+"/note",
                          headers=self.headers, params=payload)
-        f = utils.get_image(self, r, self.loop)
+        f = await utils.get_image(self, r)
         return f
 
-    def orangly(self, url):
+    async def orangly(self, url):
         url_page = requests.get(url)
         if url_page.status_code != 200:
             raise WrongParameter("Error appeared while trying to get image.")
@@ -159,24 +159,24 @@ class Wrapper(object):
         }
         r = requests.get(self.base_api_link+"/orangly",
                          headers=self.headers, params=payload)
-        f = utils.get_image(self, r, self.loop)
+        f = await utils.get_image(self, r)
         return f
 
     @property
-    def pat(self):
+    async def pat(self):
         r = requests.get(self.base_api_link+"/pat",
                          headers=self.headers)
-        f = utils.get_image(self, r, self.loop)
+        f = await utils.get_image(self, r)
         return f
 
     @property
-    def shibe(self):
+    async def shibe(self):
         r = requests.get(self.base_api_link+"/shibe",
                          headers=self.headers)
-        f = utils.get_image(self, r, self.loop)
+        f = await utils.get_image(self, r)
         return f
 
-    def triggered(self, url):
+    async def triggered(self, url):
         url_page = requests.get(url)
         if url_page.status_code != 200:
             raise WrongParameter("Error appeared while trying to get image.")
@@ -185,19 +185,19 @@ class Wrapper(object):
         }
         r = requests.get(self.base_api_link+"/triggered",
                          headers=self.headers, params=payload)
-        f = utils.get_image(self, r, self.loop)
+        f = await utils.get_image(self, r)
         return f
 
-    def trump(self, text):
+    async def trump(self, text):
         payload = {
             "text": text
         }
         r = requests.get(self.base_api_link+"/trump",
                          headers=self.headers, params=payload)
-        f = utils.get_image(self, r, self.loop)
+        f = await utils.get_image(self, r)
         return f
 
-    def tweet(self, url, text, username):
+    async def tweet(self, url, text, username):
         url_page = requests.get(url)
         if url_page.status_code != 200:
             raise WrongParameter("Error appeared while trying to get image.")
@@ -208,10 +208,10 @@ class Wrapper(object):
         }
         r = requests.get(self.base_api_link+"/tweet",
                          headers=self.headers, params=payload)
-        f = utils.get_image(self, r, self.loop)
+        f = await utils.get_image(self, r)
         return f
 
-    def wanted(self, url):
+    async def wanted(self, url):
         url_page = requests.get(url)
         if url_page.status_code != 200:
             raise WrongParameter("Error appeared while trying to get image.")
@@ -220,10 +220,10 @@ class Wrapper(object):
         }
         r = requests.get(self.base_api_link+"/wanted",
                          headers=self.headers, params=payload)
-        f = utils.get_image(self, r, self.loop)
+        f = await utils.get_image(self, r)
         return f
 
-    def wasted(self, url):
+    async def wasted(self, url):
         url_page = requests.get(url)
         if url_page.status_code != 200:
             raise WrongParameter("Error appeared while trying to get image.")
@@ -232,7 +232,7 @@ class Wrapper(object):
         }
         r = requests.get(self.base_api_link+"/wasted",
                          headers=self.headers, params=payload)
-        f = utils.get_image(self, r, self.loop)
+        f = await utils.get_image(self, r)
         return f
 
     @property
