@@ -12,7 +12,7 @@ class WrongParameter(Exception):
     pass
 
 class Wrapper(object):
-    __slots__ = ("token", "base_api_link", "headers", "loop", "bot")
+    __slots__ = ("token", "base_api_link", "headers", "loop", "bot", "session")
     
     def __init__(self, **kwargs):
         self.token = kwargs.get("token")
