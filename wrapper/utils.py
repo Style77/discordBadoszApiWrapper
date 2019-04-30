@@ -7,7 +7,7 @@ import discord
 class utils():
 
     def processing(self, image):
-        with Image.open(image) as im:
+        with Image.open(BytesIO(image)) as im:
             final_buffer = BytesIO()
             im.save(final_buffer, "png")
 
