@@ -8,7 +8,6 @@ import aiohttp
 class utils():
     def __init__(self, bot):
         self.bot = bot
-        self.session = aiohttp.ClientSession(loop=bot.loop)
 
     async def get_img_bytes(self, image) -> bytes:
         async with self.session.get(image) as response:
