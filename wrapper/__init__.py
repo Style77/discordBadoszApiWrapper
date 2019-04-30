@@ -11,7 +11,7 @@ class WrongParameter(Exception):
     pass
 
 class Wrapper(object):
-    __slots__ = ("token", "base_api_link", "headers", "loop")
+    __slots__ = ("token", "base_api_link", "headers", "loop", "bot")
     
     def __init__(self, **kwargs):
         self.token = kwargs.get("token")
@@ -21,6 +21,7 @@ class Wrapper(object):
             'Authorization': self.token
         }
         self.loop = asyncio.new_event_loop()
+        self.bot = kwargs.get("bot")
 
     @property
     def advice(self):

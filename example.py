@@ -1,7 +1,7 @@
 import wrapper
 from discord.ext import commands
 
-bot = commands.Bot()
+bot = commands.Bot(command_prefix="!")
 app = wrapper.Wrapper(token="token", bot=bot)
 
 """docs in future"""
