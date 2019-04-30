@@ -10,7 +10,7 @@ setup(
     author_email="stylek777@gmail.com",
     description="Badosz api wrapper focused on discord.py",
     long_description=long_description,
-    url="xd",
+    url="https://github.com/Style77/discordBadoszApiWrapper",
     packages=find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
