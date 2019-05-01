@@ -1,9 +1,10 @@
-from PIL import Image
+from PIL import Image, ImageSequence
 from io import StringIO, BytesIO
 import asyncio
 from functools import partial
 import discord
 import aiohttp
+import gifmaker
 
 class utils():
     def __init__(self, bot):
@@ -12,6 +13,10 @@ class utils():
     def processing(self, image, type_of_img) -> BytesIO:
         im = Image.open(BytesIO(image.content))
         final_buffer = BytesIO()
+        if type_of_img in ["gif", "webm", "gifv"]:
+            sequence = []
+            frames = [frame.copy() for frame in ImageSequence.Iterator(im)]
+            gifmaker.makedelta(final_buffer, frames)
         im.save(final_buffer, type_of_img)
         final_buffer.seek(0)
         return final_buffer
