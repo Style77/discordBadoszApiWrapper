@@ -24,7 +24,7 @@ class utils():
         return final_buffer
 
     async def get_image(self, image):
-        im = await utils.get_img_bytes(self, image)
-        fn = partial(utils.processing, self, im)
+        #im = await utils.get_img_bytes(self, image)
+        fn = partial(utils.processing, self, image.read())
         final_buffer = await self.bot.loop.run_in_executor(None, fn)
         return discord.File(fp=final_buffer)
