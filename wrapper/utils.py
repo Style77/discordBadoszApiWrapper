@@ -10,7 +10,7 @@ class utils():
         self.bot = bot
 
     def processing(self, image) -> BytesIO:
-        im = Image.open(image.content)
+        im = Image.open(image)
         final_buffer = BytesIO()
         im.save(final_buffer, "png")
         return final_buffer
