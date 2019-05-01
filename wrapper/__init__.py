@@ -7,6 +7,7 @@ from io import StringIO
 import asyncio
 import discord
 import aiohttp
+import gifmaker
 
 class WrongParameter(Exception):
     pass
