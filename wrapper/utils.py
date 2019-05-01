@@ -10,9 +10,10 @@ class utils():
         self.bot = bot
 
     def processing(self, image) -> BytesIO:
-        im = Image.open(image)
+        im = Image.open(BytesIO(image.read()))
         final_buffer = BytesIO()
         im.save(final_buffer, "png")
+        final_buffer.seek(0)
         return final_buffer
 
     async def get_image(self, image):
