@@ -4,7 +4,7 @@ import asyncio
 from functools import partial
 import discord
 import aiohttp
-import gifmaker
+import wrapper.gifmaker as gifmaker
 
 class utils():
     def __init__(self, bot):
