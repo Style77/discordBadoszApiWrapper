@@ -33,7 +33,7 @@ def makedelta(fp, sequence):
         if not previous:
 
             # global header
-            for s in getheader(im) + getdata(im):
+            for s in tuple(getheader(im)) + tuple(getdata(im)):
                 fp.write(s)
 
         else:
