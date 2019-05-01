@@ -4,6 +4,7 @@ from PIL import Image, ImageChops
 import string
 
 from PIL.GifImagePlugin import getheader, getdata
+from io import BytesIO
 
 
 class image_sequence:

@@ -13,10 +13,14 @@ class utils():
     def processing(self, image, type_of_img) -> BytesIO:
         im = Image.open(BytesIO(image.content))
         final_buffer = BytesIO()
+        index = 0
         if type_of_img in ["gif", "webm", "gifv"]:
-            sequence = []
-            frames = [frame.copy() for frame in ImageSequence.Iterator(im)]
-            gifmaker.makedelta(final_buffer, frames)
+            frames = []
+            for frame in ImageSequence.Iterator(im):
+                frames.append(frame.copy())
+            im.save(final_buffer, type_of_img, save_all=True, append_images=frames)
+            final_buffer.seek(0)
+            return final_buffer
         im.save(final_buffer, type_of_img)
         final_buffer.seek(0)
         return final_buffer
