@@ -5,7 +5,7 @@ with open("README.md", "r") as ld:
 
 setup(
     name="DiscordBadoszApiWrapper.py",
-    version="1.1.3",
+    version="1.1.4",
     author="Style",
     author_email="stylek777@gmail.com",
     description="Badosz api wrapper focused on discord.py",

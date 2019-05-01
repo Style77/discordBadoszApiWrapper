@@ -19,4 +19,4 @@ class utils():
     async def get_image(self, image):
         fn = partial(utils.processing, self, image)
         final_buffer = await self.bot.loop.run_in_executor(None, fn)
-        return discord.File(fp=final_buffer)
+        return discord.File(fp=final_buffer, filename="nothing.png")
