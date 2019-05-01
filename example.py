@@ -19,7 +19,7 @@ class fun(commands.Cog):
     @commands.command()
     async def my_nice_command(self, ctx, member: discord.Member=None):
         member = ctx.author or member
-        f = await app.blurple(member.avatar_url_as("png"))
+        f = await app.blurple(str(member.avatar_url))
         return await ctx.send(file=f)
 
 #your setup function
