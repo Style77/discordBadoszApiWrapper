@@ -15,8 +15,8 @@ class utils():
 
         return img_bytes
 
-    def processing(self, image):
-        with Image.open(image) as im:
+    def processing(self, image: bytes) -> BytesIO:
+        with Image.open(BytesIO(image)) as im:
             final_buffer = BytesIO()
             im.save(final_buffer, "png")
 
