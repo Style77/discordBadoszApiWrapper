@@ -78,7 +78,7 @@ class Wrapper(object):
     async def cuddle(self):
         r = requests.get(self.base_api_link+"/cuddle",
                          headers=self.headers)
-        f = await utils.get_image(self, r)
+        f = await utils.get_image(self, r, "gif")
         return f
 
     @property
@@ -122,7 +122,7 @@ class Wrapper(object):
     async def hug(self):
         r = requests.get(self.base_api_link+"/hug",
                          headers=self.headers)
-        f = await utils.get_image(self, r)
+        f = await utils.get_image(self, r, "gif")
         return f
     
     async def invert(self, url):
@@ -141,7 +141,7 @@ class Wrapper(object):
     async def kiss(self):
         r = requests.get(self.base_api_link+"/kiss",
                          headers=self.headers)
-        f = await utils.get_image(self, r)
+        f = await utils.get_image(self, r, "gif")
         return f
 
     async def note(self, text):
@@ -169,7 +169,7 @@ class Wrapper(object):
     async def pat(self):
         r = requests.get(self.base_api_link+"/pat",
                          headers=self.headers)
-        f = await utils.get_image(self, r)
+        f = await utils.get_image(self, r, "gif")
         return f
 
     @property
