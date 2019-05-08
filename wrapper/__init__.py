@@ -8,6 +8,17 @@ import asyncio
 import discord
 import aiohttp
 
+import sys
+
+
+def my_except_hook(exctype, value, traceback):
+    if exctype == ValueError:
+        print(traceback)
+    else:
+        sys.__excepthook__(exctype, value, traceback)
+
+sys.__excepthook__ = my_except_hook
+
 class WrongParameter(Exception):
     pass
 
@@ -78,7 +89,7 @@ class Wrapper(object):
     async def cuddle(self):
         r = requests.get(self.base_api_link+"/cuddle",
                          headers=self.headers)
-        f = await utils.get_image(self, r, "gif")
+        f = await utils.get_image(self, r)
         return f
 
     @property
@@ -122,7 +133,7 @@ class Wrapper(object):
     async def hug(self):
         r = requests.get(self.base_api_link+"/hug",
                          headers=self.headers)
-        f = await utils.get_image(self, r, "gif")
+        f = await utils.get_image(self, r)
         return f
     
     async def invert(self, url):
@@ -141,7 +152,7 @@ class Wrapper(object):
     async def kiss(self):
         r = requests.get(self.base_api_link+"/kiss",
                          headers=self.headers)
-        f = await utils.get_image(self, r, "gif")
+        f = await utils.get_image(self, r)
         return f
 
     async def note(self, text):
@@ -169,7 +180,7 @@ class Wrapper(object):
     async def pat(self):
         r = requests.get(self.base_api_link+"/pat",
                          headers=self.headers)
-        f = await utils.get_image(self, r, "gif")
+        f = await utils.get_image(self, r)
         return f
 
     @property
@@ -251,3 +262,110 @@ class Wrapper(object):
                          headers=self.headers)
         r = r.json()
         return r['joke']
+
+    """nsfw section"""
+
+    @property
+    async def anal(self):
+        r = requests.get(self.base_api_link+"/anal", 
+                         headers=self.headers)
+        f = await utils.get_image(self, r)
+        return f
+
+    @property
+    async def ass(self):
+        r = requests.get(self.base_api_link+"/ass", 
+                         headers=self.headers)
+        f = await utils.get_image(self, r)
+        return f
+
+    @property
+    async def bdsm(self):
+        r = requests.get(self.base_api_link+"/bdsm",
+                         headers=self.headers)
+        f = await utils.get_image(self, r)
+        return f
+    
+    @property
+    async def blowjob(self):
+        r = requests.get(self.base_api_link+"/blowjob",
+                         headers=self.headers)
+        f = await utils.get_image(self, r)
+        return f
+    
+    @property
+    async def boobs(self):
+        r = requests.get(self.base_api_link+"/boobs",
+                         headers=self.headers)
+        f = await utils.get_image(self, r)
+        return f
+
+    @property
+    async def ginger(self):
+        r = requests.get(self.base_api_link+"/ginger",
+                         headers=self.headers)
+        f = await utils.get_image(self, r)
+        return f
+
+    @property
+    async def gonewild(self):
+        r = requests.get(self.base_api_link+"/gonewild",
+                         headers=self.headers)
+        f = await utils.get_image(self, r)
+        return f
+
+    @property
+    async def hentai(self):
+        r = requests.get(self.base_api_link+"/hentai",
+                         headers=self.headers)
+        f = await utils.get_image(self, r)
+        return f
+
+    @property
+    async def lesbian(self):
+        r = requests.get(self.base_api_link+"/lesbian",
+                         headers=self.headers)
+        f = await utils.get_image(self, r)
+        return f
+
+    @property
+    async def milf(self):
+        r = requests.get(self.base_api_link+"/milf",
+                         headers=self.headers)
+        f = await utils.get_image(self, r)
+        return f
+
+    @property
+    async def nsfwpic(self):
+        r = requests.get(self.base_api_link+"/nsfwpic",
+                         headers=self.headers)
+        f = await utils.get_image(self, r)
+        return f
+
+    @property
+    async def porngif(self):
+        r = requests.get(self.base_api_link+"/porngif",
+                         headers=self.headers)
+        f = await utils.get_image(self, r)
+        return f
+
+    @property
+    async def pussy(self):
+        r = requests.get(self.base_api_link+"/pussy",
+                         headers=self.headers)
+        f = await utils.get_image(self, r)
+        return f
+
+    @property
+    async def snapchat(self):
+        r = requests.get(self.base_api_link+"/snapchat",
+                         headers=self.headers)
+        f = await utils.get_image(self, r)
+        return f
+
+    @property
+    async def teen(self):
+        r = requests.get(self.base_api_link+"/teen",
+                         headers=self.headers)
+        f = await utils.get_image(self, r)
+        return f
