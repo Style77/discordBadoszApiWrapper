@@ -336,8 +336,8 @@ class Wrapper(object):
         return f
 
     @property
-    async def nsfwpic(self):
-        r = requests.get(self.base_api_link+"/nsfwpic",
+    async def nsfw(self):
+        r = requests.get(self.base_api_link+"/nsfw",
                          headers=self.headers)
         f = await utils.get_image(self, r)
         return f
