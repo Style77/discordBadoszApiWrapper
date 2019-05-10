@@ -4,6 +4,10 @@ from discord.ext import commands
 bot = commands.Bot(command_prefix="!")
 app = wrapper.Wrapper(token="token", bot=bot)
 
+@bot.command()
+async def my_command(ctx, member: discord.Member):
+    await ctx.send(file=discord.File(await app.blurple(str([member.avatar_url if member else ctx.author.avatar_url])))) # Xd
+
 """docs in future"""
 
 """discord.py cog example"""
