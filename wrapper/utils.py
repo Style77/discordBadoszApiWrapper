@@ -11,7 +11,7 @@ class utils():
         self.bot = bot
 
     def processing(self, image, type_of_img) -> BytesIO:
-        im = Image.open(BytesIO(image.body))
+        im = Image.open(image)
         if type_of_img in ["gif", "webm", "mp4"]:
             final_buffer = BytesIO()
             final_buffer.write(image.content)
