@@ -10,7 +10,7 @@ class utils():
     def __init__(self, bot):
         self.bot = bot
 
-    async def get_image(self, image):
+    async def get_image(self, image, format=None):
         type_ = image.headers['Content-Type']
         formats_map = {
             "image/png": "png",
@@ -21,4 +21,6 @@ class utils():
             "video/webm": "webm"
         }
         image = BytesIO(await image.read())
-        return discord.File(fp=image, filename=f"nothing.{formats_map[type_]}")
+        if format is not None:
+            format = formats_map[type_]
+        return discord.File(fp=image, filename=f"nothing.{format}")
