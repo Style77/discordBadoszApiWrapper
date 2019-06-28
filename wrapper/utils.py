@@ -20,8 +20,5 @@ class utils():
             "video/mp4": "mp4",
             "video/webm": "webm"
         }
-        #if formats_map[type_] in ["gif", "webl", "webm"]:
-            #im = image
-        #else:
         image = BytesIO(await image.read())
         return discord.File(fp=image, filename=f"nothing.{formats_map[type_]}")
