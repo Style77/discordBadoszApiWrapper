@@ -379,11 +379,11 @@ class Wrapper(object):
         return f
 
     @property
-    async def porngif(self):
+    async def porngif(self): # for some reasons just this is not working with correct format
         async with aiohttp.ClientSession() as cs:
             async with cs.get(self.base_api_link+"/porngif",
                               headers=self.headers) as r:
-                f = await utils.get_image(self, r)
+                f = await utils.get_image(self, r, "gif")
         return f
 
     @property
