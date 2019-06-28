@@ -21,6 +21,6 @@ class utils():
             "video/webm": "webm"
         }
         image = BytesIO(await image.read())
-        if format is not None:
+        if format is None:
             format = formats_map[type_]
         return discord.File(fp=image, filename=f"nothing.{format}")
