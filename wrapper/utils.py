@@ -5,23 +5,11 @@ from functools import partial
 import discord
 import aiohttp
 import os
+from .file import File
 
 class utils():
-    def __init__(self, bot):
-        self.bot = bot
 
     async def get_image(self, image):
-        type_ = image.headers['Content-Type']
-        formats_map = {
-            "image/png": "png",
-            "image/gif": "gif",
-            "image/jpeg": "jpg",
-            "image/webp": "webp",
-            "video/mp4": "mp4",
-            "video/webm": "webm"
-        }
-        #if formats_map[type_] in ["gif", "webl", "webm"]:
-            #im = image
-        #else:
-        image = BytesIO(await image.read())
-        return discord.File(fp=image, filename=f"nothing.{formats_map[type_]}")
+        headers = image.headers
+        r = await image.read()
+        return File(r, headers)

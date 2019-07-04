@@ -1,16 +1,19 @@
 import wrapper
 from discord.ext import commands
+import asyncio
 
-bot = commands.Bot(command_prefix="!")
-app = wrapper.Wrapper(token="token", bot=bot)
+app = wrapper.Wrapper(token=)
 
-@bot.command()
-async def my_command(ctx, member: discord.Member):
-    await ctx.send(file=discord.File(await app.blurple(str([member.avatar_url if member else ctx.author.avatar_url])))) # Xd
+async def test():
+    z = await app.fox
+    print(await z.get_discord_file())
 
-"""docs in future"""
+loop = asyncio.get_event_loop()
+loop.run_until_complete(test())
 
-"""discord.py cog example"""
+"""
+# discord.py cog example
+
 import wrapper
 import discord
 from discord.ext import commands
@@ -18,7 +21,7 @@ from discord.ext import commands
 class fun(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-        self.app = wrapper.Wrapper(token="token", bot=bot)
+        self.app = wrapper.Wrapper(token="token")
 
     @commands.command()
     async def my_nice_command(self, ctx, member: discord.Member=None):
@@ -28,3 +31,4 @@ class fun(commands.Cog):
 
 #your setup function
 
+"""
