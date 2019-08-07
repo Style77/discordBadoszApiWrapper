@@ -22,8 +22,9 @@ image_endpoints = ['bird', 'cuddle', 'dog', 'fox', 'hug',
                     'kiss', 'pat', 'shibe', 'anal', 'ass',
                     'bdsm', 'blowjob', 'boobs', 'ginger',
                     'gonewild', 'hentai', 'lesbian', 'milf',
-                    'nsfw', 'porngif', 'pussy', 'snapchat',
-                    'teen', 'tickle', 'poke', 'feed', 'catgirl']
+                    'nsfwimg', 'porngif', 'pussy', 'snapchat',
+                    'teen', 'tickle', 'poke', 'feed', 'catgirl',
+                    'lewd', 'spreadeagle', 'legs', 'pajamas']
 
 all_endpoints = ['bird', 'cuddle', 'dog', 'fox', 'hug',
                     'kiss', 'pat', 'shibe', 'anal', 'ass',
